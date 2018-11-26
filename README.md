@@ -1,3 +1,0 @@
-# DS-Project
-2018/2019
-FCIS
