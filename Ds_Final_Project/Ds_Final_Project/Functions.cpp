@@ -44,6 +44,7 @@ void displayGraph() {
 				size_t pos = 0;
 				string token;
 				int counter = 0;
+				seperate.erase(seperate.begin()); //erase first #
 				while ((pos = seperate.find(reference)) != -1) {
 					token = seperate.substr(0, pos);
 					str[counter] = token;

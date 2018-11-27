@@ -38,18 +38,19 @@ void Graph::addMap() {
 	for (int i = 0; i < NumOfCity; i++) {
 		//cout << "        ";
 		cout << "\nEnter Vertex Num " << i + 1 << " : ";
-		cin >> City1;
+		cin.ignore(1000,'\n');  //to get a composite cities like ( New cairo )
+		getline(cin, City1);
 		cout << "connected with ->";
-		cin >> City2;
+		getline(cin, City2);
 		cout << "their weght (distance between them) is :";
 		cin >> Weight;
 		stringstream ss;
 		ss << Weight;
 		string dis = ss.str();
-		string concatinate = City1 + "#" + City2 + "#" +dis;// don't forget to conver again to interger
+		string concatinate = '#' + City1 + "#" + City2 + "#" +dis;// don't forget to conver again to interger
 		mapInfo << concatinate << endl;
+		mp[City1].push_back(Edge(City2, Weight));
 		cout << "**********************\n";
-		//mp[City1].push_back(Edge(City2, Weight));
 	}
 	mapInfo.close();
 }
