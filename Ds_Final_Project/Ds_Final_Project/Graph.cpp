@@ -57,6 +57,7 @@ void Graph::addMap() {
 void Graph::putINmap(string A, string B, int c) { 
 	mp[A].push_back(Edge(B, c));
 }
+
 void Graph::outMap() { // this method is useless but leave it
 	cout << "\n\n";
 	for (it =mp.begin();it != mp.end(); it++) {

@@ -11,5 +11,11 @@
 #include<cstringt.h>
 void displayMaps();
 void addGraph();
-void displayGraph();
+vector<string> displayGraph(string GraphName);
 void deleteMap();
+
+/*********** Abanoub ***********/
+void EditGraph();
+void DeleteEdge(string NodeName1,string NodeName2, vector<string> s, string fileName);
+void DeleteNode(string NodeName,vector<string> , string fileName);
+/*********** Abanoub ***********/

@@ -45,11 +45,23 @@ void AppStart() {
 	else if (choice == '2')
 	{
 		system("CLS");
-		//Edit Grapg
+		EditGraph();
 	}
 	else if (choice == '3') {
 		system("CLS");
-		displayGraph();
+		char choose;
+		do {
+			displayMaps();
+			cout << "\n\t\t  please write Name of the Map that you want to display\n\t\t" << endl;
+			cout << "\t\t";
+			string input;
+			cin >> input;
+			displayGraph(input);
+			cout << "\n\n Do You want to display another Map (y/n)? ";
+			cin >> choose;
+			system("CLS");
+		} while (choose == 'y');
+		AppStart();
 	}
 	else if (choice == '4') {
 		system("CLS");

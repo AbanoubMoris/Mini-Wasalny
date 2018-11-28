@@ -21,6 +21,7 @@ public:
 	Graph();
 	void addMap();
 	void putINmap(string A, string B, int c);
+
 	void outMap();
 	~Graph();
 };
