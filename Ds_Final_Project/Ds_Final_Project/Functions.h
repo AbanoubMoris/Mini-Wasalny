@@ -16,6 +16,9 @@ void deleteMap();
 
 /*********** Abanoub ***********/
 void EditGraph();
-void DeleteEdge(string NodeName1,string NodeName2, vector<string> s, string fileName);
-void DeleteNode(string NodeName,vector<string> , string fileName);
+void DeleteEdge(string NodeName1, string NodeName2, vector<string> s, string fileName);
+void DeleteNode(string NodeName, vector<string>, string fileName);
+void AddCity(string City1, unordered_map<string, vector<Edge>> mp, string fileName);
+void EditNode(string NodeName, vector<string>, string fileName);
+void AddEdge(string NodeName1, string NodeName2, vector<string> s, string fileName);
 /*********** Abanoub ***********/
