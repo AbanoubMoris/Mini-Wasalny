@@ -1,8 +1,10 @@
 ﻿  Source.cpp
-c:\users\lap shop\desktop\consoleapplication23\consoleapplication23\source.cpp(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\desktop\consoleapplication23\consoleapplication23\source.cpp(41): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\desktop\consoleapplication23\consoleapplication23\source.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\desktop\consoleapplication23\consoleapplication23\source.cpp(63): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\desktop\consoleapplication23\consoleapplication23\source.cpp(65): warning C4018: '<': signed/unsigned mismatch
-  ConsoleApplication23.vcxproj -> C:\Users\lap shop\Desktop\ConsoleApplication23\Debug\ConsoleApplication23.exe
-  ConsoleApplication23.vcxproj -> C:\Users\lap shop\Desktop\ConsoleApplication23\Debug\ConsoleApplication23.pdb (Full PDB)
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(41): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(63): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(65): warning C4018: '<': signed/unsigned mismatch
+  Edge.cpp
+  Generating Code...
+  ConsoleApplication23.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Dijkstra\Debug\ConsoleApplication23.exe
+  ConsoleApplication23.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Dijkstra\Debug\ConsoleApplication23.pdb (Full PDB)
