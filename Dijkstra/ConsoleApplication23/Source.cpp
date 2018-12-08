@@ -5,6 +5,7 @@
 #include<vector>
 #include<algorithm>
 #include<stack>
+#include <algorithm>
 #include"Edge.h"
 using namespace std;
 
@@ -14,6 +15,7 @@ struct table {
 	double weight = 10000000;
 	string path = "-1";
 };
+
 vector<table> MakeTable(map<string,vector<Edge>> mp) {
 	vector<table> V;
 	table t;
@@ -21,9 +23,27 @@ vector<table> MakeTable(map<string,vector<Edge>> mp) {
 	for (it; it != mp.end(); it++) {
 		t.city = it->first;
 		V.push_back(t);
+		vector<Edge>::iterator i = it->second.begin();
+		for (i; i != it->second.end(); i++) {
+			if (mp.find(i->GetVertex()) != mp.end()) continue;
+			else {
+				bool found = false;
+				for (int j = 0; j < V.size(); j++) {
+					if (V[j].city == i->GetVertex()) {
+						found = true;
+					}
+				}
+				if (!found) {
+				t.city = i->GetVertex();
+				V.push_back(t);
+
+				}
+				//t.visited = true;
+				//.path = it->first;
+			}
+		}
 	}
 	return V;
-
 }
 int allVisited(vector<table> t) {
 	double min = 1000000;
@@ -37,14 +57,23 @@ int allVisited(vector<table> t) {
 	return cnt;
 }
 double CurrentMinimum(vector<table> x) {
-	double min = 1000000;
+	double min = 1000000000;
 	for (int z = 0; z < x.size(); z++) {
 		if (x[z].visited == false && min > x[z].weight)
 			min = x[z].weight;
 	}
 	return min;
 }
-vector<table> Dijkstra(map<string, vector<Edge>> mp , string source) {
+bool Distnation(vector<table> x , string dist ) {
+	for (int i = 0; i < x.size(); i++) {
+		if (x[i].visited == true) {
+			return true;
+		}
+	}
+	return false;
+}
+
+vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string distenation) {
 
 	vector<table> x=MakeTable(mp);
 	for (int i = 0; i < x.size(); i++) { //make source is visited
@@ -59,33 +88,33 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source) {
 	//for (int i = 0; i < x.size(); i++) {
 	double min = 0;
 	int cnt = 0;
-	int operations = 0;
-	while (allVisited(x)<x.size()) {
+	while (allVisited(x)<x.size() && !Distnation(x,distenation) ) {
 		int  j = 0;
 		for (j; j < x.size(); j++) {
 			if (!x[j].visited) {
 				if (x[j].weight == CurrentMinimum(x)) {
 					it = mp.find(x[j].city);
 					double min2 = 100000;
-					for (E = it->second.begin(); E != it->second.end(); E++) {
-						vector<table>::iterator TT = x.begin();
-						double curwt = E->GetWeight();
-
-						for (TT; TT != x.end(); TT++) {
-							if (TT->city == E->GetVertex()) {
-								//operations++;
-								break;
-							}
-						}
-						if (TT->weight > x[j].weight + curwt && !TT->visited) {
-							TT->weight = curwt + x[j].weight;
-							TT->path = x[j].city;
-
-
-						}
-						x[j].visited = true;
+					if (it == mp.end()) {
+					x[j].visited = true;
+					break;
 					}
+						for (E = it->second.begin(); E != it->second.end(); E++) {
+							double curwt = E->GetWeight();
+							vector<table>::iterator TT = x.begin();
 
+							for (TT; TT != x.end(); TT++) {
+								if (TT->city == E->GetVertex()) {
+									//operations++;
+									break;
+								}
+							}
+							if (TT->weight > x[j].weight + curwt && !TT->visited) {
+								TT->weight = curwt + x[j].weight;
+								TT->path = x[j].city;
+							}
+							x[j].visited = true;
+						}
 				}
 
 			}
@@ -95,12 +124,19 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source) {
 	}
 	return x;
 }
-stack<string> GetPath(map<string, vector<Edge>> mp, string source , string dist) {
-	vector<table> x = Dijkstra(mp, source);
+
+stack<string> GetPath(map<string, vector<Edge>> mp, string source , string dist , double &distance) {
+	vector<table> x = Dijkstra(mp, source ,dist);
 	stack<string> s;
 	string curDist = dist;
 	int i = 0;
 	s.push(dist);
+	for (int i = 0l; i < x.size(); i++) {
+		if (x[i].city == dist) {
+		distance = x[i].weight;
+		break;
+		}
+	}
 	while (!s.empty() && s.top() != source) {
 		if (x[i].city == curDist) {
 			s.push(x[i].path);
@@ -127,14 +163,14 @@ void main() {
                                   a----2---c / 
 )";
 	/*
-	       /Z\
-	      /   \
-	     10    2
-	    /       \
-	   b----1----x
-	  /   \       /
-	 3     4     8
-	/       \   /
+	/Z\
+	/   \
+	10    2
+	/       \
+	b----1----x
+	/ \       /
+	3   4     8
+	/     \   /
 	a----2---c /
 
 test case (copy & paste)
@@ -155,6 +191,15 @@ test case (copy & paste)
 	b z 10
 	z b 10
 	a z
+//************another test*************
+	3
+	v a 5
+	a z 10
+	x z 2
+	x z
+
+	/*******************
+	
 
 	*/
 		map<string, vector<Edge>> mp;
@@ -182,12 +227,13 @@ test case (copy & paste)
 		cout << "get shortest path  :";
 		string source, dist;
 		cin >> source >> dist;
-
-	    stack<string> s = GetPath(mp, source, dist);
+		double distance = 0;
+	    stack<string> s = GetPath(mp, source, dist,distance);
 	    while (!s.empty()) {
 	    	cout << s.top()<<" --> ";
 	    	s.pop();
 	    }
+		cout << distance << " Km";
 
 // all this comment is now on functions but leave it !
 
@@ -244,13 +290,6 @@ test case (copy & paste)
 	//}   //    //
 
 	cout << "\n";
-	cout<<R"(
-	  0
-        / | \
-	  |
-         / \
-Dijkstraaaaaaaaaaa3
-		)";
 
 	//for (int i = 0; i < x.size(); i++) {
 	//	cout << x[i].city << " " << x[i].visited << " " << x[i].weight << " " << x[i].path;

@@ -1,10 +1,11 @@
 ﻿  Source.cpp
-c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(41): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(63): warning C4018: '<': signed/unsigned mismatch
-c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(65): warning C4018: '<': signed/unsigned mismatch
-  Edge.cpp
-  Generating Code...
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(79): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(91): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\dijkstra\consoleapplication23\source.cpp(134): warning C4018: '<': signed/unsigned mismatch
   ConsoleApplication23.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Dijkstra\Debug\ConsoleApplication23.exe
   ConsoleApplication23.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Dijkstra\Debug\ConsoleApplication23.pdb (Full PDB)
