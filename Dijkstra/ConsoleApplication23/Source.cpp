@@ -142,6 +142,11 @@ stack<string> GetPath(map<string, vector<Edge>> mp, string source , string dist 
 			s.push(x[i].path);
 			curDist = x[i].path;
 		}
+		if (x[i].city == dist && x[i].visited == false) {
+			stack<string> newstack;
+			s = newstack;
+			break;
+		}
 		i++;
 		if (i == x.size())i = 0;
 
@@ -229,74 +234,14 @@ test case (copy & paste)
 		cin >> source >> dist;
 		double distance = 0;
 	    stack<string> s = GetPath(mp, source, dist,distance);
-	    while (!s.empty()) {
-	    	cout << s.top()<<" --> ";
-	    	s.pop();
-	    }
-		cout << distance << " Km";
-
-// all this comment is now on functions but leave it !
-
-	//	vector<table> x = MakeTable(mp);
-	//	for (int i = 0; i < x.size(); i++) { //make source is visited
-	//		if (x[i].city == source) {
-	//			//x[i].visited = true;
-	//			x[i].path = x[i].city;
-	//			x[i].weight = 0;
-	//		}
-	//	}
-	//	map<string, vector<Edge>>::iterator it = mp.begin();
-	//	vector<Edge>::iterator E;
-	//	//for (int i = 0; i < x.size(); i++) {
-	//	double min = 0;
-	//	int cnt = 0;
-	//
-	//	int operations = 0;
-	//
-	//while (allVisited(x)<x.size()){
-	//	int  j= 0;
-	//	for (j ; j < x.size(); j++) {
-	//		if (!x[j].visited) {
-	//			if (x[j].weight == CurrentMinimum(x)) {
-	//				it = mp.find(x[j].city);
-	//				double min2 = 100000;
-	//				for (E = it->second.begin(); E != it->second.end(); E++) {
-	//					vector<table>::iterator TT = x.begin();
-	//					double curwt=E->GetWeight();
-	//
-	//					for (TT; TT!=x.end(); TT++) { 
-	//						if (TT->city == E->GetVertex()) {
-	//							//operations++;
-	//							break;
-	//						}
-	//					}
-	//					if (TT->weight > x[j].weight + curwt && !TT->visited) {
-	//						TT->weight = curwt + x[j].weight;
-	//						TT->path = x[j].city;
-	//
-	//						
-	//					}
-	//					x[j].visited = true;
-	//				}
-	//
-	//			}
-	//
-	//			}
-	//		
-	//	}
-	//	//*************************
-	//
-	//
-	//}   //    //
-
-	cout << "\n";
-
-	//for (int i = 0; i < x.size(); i++) {
-	//	cout << x[i].city << " " << x[i].visited << " " << x[i].weight << " " << x[i].path;
-	//	cout << endl;
-	//}
-
-	//cout << "\nNum of operations: " << operations << endl;
+		if (!s.empty()) {
+			while (!s.empty()) {
+				cout << s.top() << " --> ";
+				s.pop();
+			}
+			cout << distance << " Km";
+		}
+		else cout << "path can't be reached !:(";
 }
 
 
