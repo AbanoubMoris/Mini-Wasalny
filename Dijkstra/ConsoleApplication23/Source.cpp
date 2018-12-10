@@ -66,21 +66,21 @@ double CurrentMinimum(vector<table> x) {
 }
 bool Distnation(vector<table> x , string dist ) {
 	for (int i = 0; i < x.size(); i++) {
-		if (x[i].visited == true) {
-			return true;
+		if (x[i].visited == false && x[i].city==dist) {
+			return false;
 		}
 	}
-	return false;
+	return true;
 }
 
 vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string distenation) {
 
-	vector<table> x=MakeTable(mp);
-	for (int i = 0; i < x.size(); i++) { //make source is visited
-		if (x[i].city == source) {
+	vector<table> Tbl=MakeTable(mp);
+	for (int i = 0; i < Tbl.size(); i++) { //make source is visited
+		if (Tbl[i].city == source) {
 			//x[i].visited = true;
-			x[i].path = x[i].city;
-			x[i].weight = 0;
+			Tbl[i].path = Tbl[i].city;
+			Tbl[i].weight = 0;
 		}
 	}
 	map<string, vector<Edge>>::iterator it = mp.begin();
@@ -88,32 +88,32 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string dis
 	//for (int i = 0; i < x.size(); i++) {
 	double min = 0;
 	int cnt = 0;
-	while (allVisited(x)<x.size() && !Distnation(x,distenation) ) {
+	while (/*allVisited(x)<x.size() && */ !Distnation(Tbl,distenation) ) {
 		int  j = 0;
-		for (j; j < x.size(); j++) {
-			if (!x[j].visited) {
-				if (x[j].weight == CurrentMinimum(x)) {
-					it = mp.find(x[j].city);
+		for (j; j < Tbl.size(); j++) {
+			if (!Tbl[j].visited) {
+				if (Tbl[j].weight == CurrentMinimum(Tbl)) {
+					it = mp.find(Tbl[j].city);
 					double min2 = 100000;
 					if (it == mp.end()) {
-					x[j].visited = true;
+					Tbl[j].visited = true;
 					break;
 					}
 						for (E = it->second.begin(); E != it->second.end(); E++) {
 							double curwt = E->GetWeight();
-							vector<table>::iterator TT = x.begin();
+							vector<table>::iterator TT = Tbl.begin();
 
-							for (TT; TT != x.end(); TT++) {
+							for (TT; TT != Tbl.end(); TT++) {
 								if (TT->city == E->GetVertex()) {
 									//operations++;
 									break;
 								}
 							}
-							if (TT->weight > x[j].weight + curwt && !TT->visited) {
-								TT->weight = curwt + x[j].weight;
-								TT->path = x[j].city;
+							if (TT->weight > Tbl[j].weight + curwt && !TT->visited) {
+								TT->weight = curwt + Tbl[j].weight;
+								TT->path = Tbl[j].city;
 							}
-							x[j].visited = true;
+							Tbl[j].visited = true;
 						}
 				}
 
@@ -122,7 +122,7 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string dis
 		}
 		//*************************
 	}
-	return x;
+	return Tbl;
 }
 
 stack<string> GetPath(map<string, vector<Edge>> mp, string source , string dist , double &distance) {
@@ -142,7 +142,7 @@ stack<string> GetPath(map<string, vector<Edge>> mp, string source , string dist 
 			s.push(x[i].path);
 			curDist = x[i].path;
 		}
-		if (x[i].city == dist && x[i].visited == false) {
+		if (x[i].city == dist && x[i].weight == 10000000) {
 			stack<string> newstack;
 			s = newstack;
 			break;
@@ -241,7 +241,7 @@ test case (copy & paste)
 			}
 			cout << distance << " Km";
 		}
-		else cout << "path can't be reached !:(";
+		else cout << "path can't be reached !:(\n";
 }
 
 
