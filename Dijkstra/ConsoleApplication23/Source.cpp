@@ -88,7 +88,7 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string dis
 	//for (int i = 0; i < x.size(); i++) {
 	double min = 0;
 	int cnt = 0;
-	while (/*allVisited(x)<x.size() && */ !Distnation(Tbl,distenation) ) {
+	while (allVisited(Tbl) < Tbl.size() /* &&  !Distnation(Tbl,distenation)*/ ) {
 		int  j = 0;
 		for (j; j < Tbl.size(); j++) {
 			if (!Tbl[j].visited) {
