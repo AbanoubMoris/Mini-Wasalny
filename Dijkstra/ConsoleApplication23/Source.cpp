@@ -87,9 +87,10 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string dis
 	vector<Edge>::iterator E;
 	//for (int i = 0; i < x.size(); i++) {
 	double min = 0;
-	int cnt = 0;
+	int loop = 0;
 	while (allVisited(Tbl) < Tbl.size() /* &&  !Distnation(Tbl,distenation)*/ ) {
 		int  j = 0;
+
 		for (j; j < Tbl.size(); j++) {
 			if (!Tbl[j].visited) {
 				if (Tbl[j].weight == CurrentMinimum(Tbl)) {
@@ -116,11 +117,11 @@ vector<table> Dijkstra(map<string, vector<Edge>> mp , string source , string dis
 							Tbl[j].visited = true;
 						}
 				}
-
 			}
-
 		}
-		//*************************
+		loop++;
+		if (loop == pow(Tbl.size(), 2)) break;
+
 	}
 	return Tbl;
 }
