@@ -65,37 +65,42 @@ void AppStart() {
 		} while (choose == 'y');
 		AppStart();
 	}
-	else if (choice == '4') {
-		system("CLS");
-		displayMaps();
-		cout << "\n\t\t  please write Name of the Map that you want to display\n\t\t" << endl;
+	else if (choice == '4') { //shortest path
+		char choose;
+		do {
+			system("CLS");
+			displayMaps();
+			cout << "\n\t\t  please write Name of the Map that you want to display\n\t\t" << endl;
 			cout << "\t\t";
 			string input;
 			cin >> input;
 			map<string, vector<Edge>> mp;
-			displayGraph(input,mp);
-		string src, dist;
-		cout << "Enter Source city : ";
-		cin.ignore(1000, '\n');
-		getline(cin, src);
-		cout << "Enter Distnation city : ";
-		getline(cin, dist);
-		//*********************************************************
-		double distance = 0;
-		Dijkstra Dijkstra;
-		// recall;
-		
-		stack<string> s = Dijkstra.GetPath(mp, src, dist, distance); //************************
-		if (!s.empty()) {
-			while (!s.empty()) {
-				cout << s.top() << " --> ";
-				s.pop();
+			displayGraph(input, mp);
+			string src, dist;
+			cout << "Enter Source city : ";
+			cin.ignore(1000, '\n');
+			getline(cin, src);
+			cout << "Enter Distnation city : ";
+			getline(cin, dist);
+			//*********************************************************
+			double distance = 0;
+			Dijkstra Dijkstra;
+			// recall;
+
+			stack<string> s = Dijkstra.GetPath(mp, src, dist, distance); //************************
+			if (!s.empty()) {
+				while (!s.empty()) {
+					cout << s.top() << " --> ";
+					s.pop();
+				}
+				cout << distance << " Km \n";
 			}
-			cout << distance << " Km \n";
-		}
-		else cout << "path can't be reached !:(\n";
-		//********************************************************
-		//shortestPath //***************************************
+			else cout << "path can't be reached !:(\n";
+			//********************************************************
+			cout << "\n\n Do You want to display another Map (y/n)? ";
+			cin >> choose;
+		} while (choose == 'y');
+		AppStart();
 		
 	}
 	else if (choice == '5') {

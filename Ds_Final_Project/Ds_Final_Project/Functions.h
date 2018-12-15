@@ -15,7 +15,6 @@ vector<string> displayGraph(string GraphName, map<string, vector<Edge>> &mp);
 void deleteMap();
 
 /*********** Abanoub ***********/
-map<string, vector<Edge>> GetMap(map<string, vector<Edge>>);
 void EditGraph();
 void DeleteEdge(string NodeName1, string NodeName2, vector<string> s, string fileName);
 void DeleteNode(string NodeName, vector<string>, string fileName);

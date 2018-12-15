@@ -64,11 +64,12 @@ map<string, vector<Edge>> Graph::GetMap() {
 void  Graph::outMap(map<string, vector<Edge>> &map) { // this method is useless but leave it
 	cout << "\n\n";
 	for (it =mp.begin();it != mp.end(); it++) {
-		cout << "Vertexes Connected to " << it->first << ":: Are -> ";
+		cout << "Vertexes Connected to (" << it->first << "):: Are -> { \n";
 		for ( i = it->second.begin(); i != it->second.end(); i++) {
-			cout << "< City : " << i->GetVertex() << "   Weight " << i->GetWeight() << " Km >";
+			cout << "				< City : " << i->GetVertex() << "   Weight " << i->GetWeight() << " Km > ,\n";
 		}
-		cout << endl;
+		cout << "				}" << endl << endl;
+		cout << "            *******************************************************\n";
 	}
 	map = mp;
 	

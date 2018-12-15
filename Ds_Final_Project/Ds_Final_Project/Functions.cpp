@@ -1,9 +1,6 @@
 #include"Functions.h"
 #include <sstream>
 map<string, vector<Edge>> mp;
-map<string, vector<Edge>> outMap() {
-	return mp;
-}
 void displayMaps() {
 	cout << "\n\t\t\t\t  " << "Welcome" << "\n\n\t\t";
 	cout << "\t  Here's All map are recently Saved\n\t\t" << endl;
@@ -258,7 +255,6 @@ void DeleteEdge(string City1, string City2, vector<string> s, string fileName) {
 	}
 	f.close();
 }
-
 void EditNode(string NodeName, vector<string>s, string fileName)
 {
 	string newname;
@@ -289,7 +285,6 @@ void EditNode(string NodeName, vector<string>s, string fileName)
 
 
 }
-
 void AddCity(string City1, map<string, vector<Edge>> mp, string fileName)
 {
 	
