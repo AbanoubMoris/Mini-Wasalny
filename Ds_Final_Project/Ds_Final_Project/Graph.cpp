@@ -57,8 +57,11 @@ void Graph::addMap() {
 void Graph::putINmap(string A, string B, int c) { 
 	mp[A].push_back(Edge(B, c));
 }
+map<string, vector<Edge>> Graph::GetMap() {
+	return mp;
+}
 
-void Graph::outMap() { // this method is useless but leave it
+void  Graph::outMap(map<string, vector<Edge>> &map) { // this method is useless but leave it
 	cout << "\n\n";
 	for (it =mp.begin();it != mp.end(); it++) {
 		cout << "Vertexes Connected to " << it->first << ":: Are -> ";
@@ -67,6 +70,8 @@ void Graph::outMap() { // this method is useless but leave it
 		}
 		cout << endl;
 	}
+	map = mp;
+	
 }
 
 Graph::~Graph()

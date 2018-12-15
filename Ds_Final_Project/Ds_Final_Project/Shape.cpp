@@ -1,9 +1,10 @@
 #include"Shape.h"
+#include"Dijkstra.h"
 using namespace std;
 char Diamond = 4;
 char Heart = 3;
 char Happy = 1;
-//***********************************************************************
+//*********************************************************************
 void shape(int width, int height) {
 	system("CLS");
 	string Name = "Welcom in Waslny Application";
@@ -56,7 +57,8 @@ void AppStart() {
 			cout << "\t\t";
 			string input;
 			cin >> input;
-			displayGraph(input);
+			map<string, vector<Edge>> mp;
+			displayGraph(input, mp);
 			cout << "\n\n Do You want to display another Map (y/n)? ";
 			cin >> choose;
 			system("CLS");
@@ -65,7 +67,36 @@ void AppStart() {
 	}
 	else if (choice == '4') {
 		system("CLS");
-		//shortestPath
+		displayMaps();
+		cout << "\n\t\t  please write Name of the Map that you want to display\n\t\t" << endl;
+			cout << "\t\t";
+			string input;
+			cin >> input;
+			map<string, vector<Edge>> mp;
+			displayGraph(input,mp);
+		string src, dist;
+		cout << "Enter Source city : ";
+		cin.ignore(1000, '\n');
+		getline(cin, src);
+		cout << "Enter Distnation city : ";
+		getline(cin, dist);
+		//*********************************************************
+		double distance = 0;
+		Dijkstra Dijkstra;
+		// recall;
+		
+		stack<string> s = Dijkstra.GetPath(mp, src, dist, distance); //************************
+		if (!s.empty()) {
+			while (!s.empty()) {
+				cout << s.top() << " --> ";
+				s.pop();
+			}
+			cout << distance << " Km \n";
+		}
+		else cout << "path can't be reached !:(\n";
+		//********************************************************
+		//shortestPath //***************************************
+		
 	}
 	else if (choice == '5') {
 		system("CLS");

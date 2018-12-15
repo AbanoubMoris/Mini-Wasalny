@@ -115,12 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Shape.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dijkstra.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Graph.cpp" />

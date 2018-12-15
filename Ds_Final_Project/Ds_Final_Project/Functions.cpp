@@ -1,6 +1,9 @@
 #include"Functions.h"
 #include <sstream>
-unordered_map<string, vector<Edge>> mp;
+map<string, vector<Edge>> mp;
+map<string, vector<Edge>> outMap() {
+	return mp;
+}
 void displayMaps() {
 	cout << "\n\t\t\t\t  " << "Welcome" << "\n\n\t\t";
 	cout << "\t  Here's All map are recently Saved\n\t\t" << endl;
@@ -20,7 +23,7 @@ void addGraph() {
 	Map.addMap();
 }
 //*****************************************************************************************************
-vector<string> displayGraph(string input) {
+vector<string> displayGraph(string input,map<string , vector<Edge>> &map) {
 	Graph recall;
 	string x;
 	recall.mp.clear();
@@ -50,7 +53,8 @@ vector<string> displayGraph(string input) {
 		int dis = stoi(str[2]);
 		recall.putINmap(str[0], str[1], dis);
 	}
-	recall.outMap();
+	//map = mp;
+	recall.outMap(map);
 	return L;
 }
 //*********************************************************************************
@@ -114,7 +118,8 @@ void EditGraph() {
 		string name;
 		cout << "Enter Name of map where you want add City:";
 		getline(cin, name);
-		displayGraph(name);
+		map<string, vector<Edge>> mp;
+		displayGraph(name , mp);
 		string City1;
 		int x;
 		cout << "Enter The Name of city :";
@@ -140,13 +145,14 @@ void EditGraph() {
 			cout << "\t\t";
 			string input;
 			cin >> input;
-			vector<string>s = displayGraph(input);
+			map<string, vector<Edge>> mp;
+			vector<string>x = displayGraph(input, mp);
 
 			string NodeName;
 			cout << "\tEnter Node Name : ";
 			cin.ignore(1000, '\n');
 			getline(cin, NodeName);
-			EditNode(NodeName, s, input);
+			EditNode(NodeName, x, input);
 
 		}
 		else if (choose == 2) {
@@ -155,7 +161,9 @@ void EditGraph() {
 			cout << "\t\t";
 			string input;
 			cin >> input;
-			vector<string>x = displayGraph(input);
+
+			map<string, vector<Edge>> mp;
+			vector<string>x = displayGraph(input, mp);
 			string City1, City2;
 			cout << "\tEnter City1 Name : ";
 			cin.ignore(1000, '\n');
@@ -178,12 +186,13 @@ void EditGraph() {
 			cout << "\t\t";
 			string input;
 			cin >> input;
-			vector<string>s = displayGraph(input);
+			map<string, vector<Edge>> mp;
+			vector<string>x = displayGraph(input, mp);
 			string NodeName;
 			cout << "\tEnter Node Name : ";
 			cin.ignore(1000, '\n');
 			getline(cin, NodeName);
-			DeleteNode(NodeName, s, input);
+			DeleteNode(NodeName, x , input);
 		}
 		else if (choose == 2) {
 			displayMaps();
@@ -191,7 +200,8 @@ void EditGraph() {
 			cout << "\t\t";
 			string input;
 			cin >> input;
-			vector<string>x = displayGraph(input);
+			map<string, vector<Edge>> mp;
+			vector<string>x = displayGraph(input, mp);
 
 			string City1, City2;
 			cout << "\tEnter City1 Name : ";
@@ -280,7 +290,7 @@ void EditNode(string NodeName, vector<string>s, string fileName)
 
 }
 
-void AddCity(string City1, unordered_map<string, vector<Edge>> mp, string fileName)
+void AddCity(string City1, map<string, vector<Edge>> mp, string fileName)
 {
 	
 	double Weight;
@@ -313,3 +323,5 @@ void AddEdge(string NodeName1, string NodeName2, vector<string> x, string fileNa
 	mp[NodeName1].push_back(Edge(NodeName2, Weight));
 	cout << "**********************\n";
 }
+
+
