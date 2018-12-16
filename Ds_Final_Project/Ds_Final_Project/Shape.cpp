@@ -1,4 +1,5 @@
-#include"Shape.h"
+﻿#include"Shape.h"
+//#include"Functions.h"
 #include"Dijkstra.h"
 using namespace std;
 char Diamond = 4;
@@ -34,6 +35,7 @@ void shape(int width, int height) {
 }
 //******************************************************************************************************
 void AppStart() {
+	Loading("Mini_Wasalny :)",130);
 	//cout << "\n\t\t\t\t  " << " Main Menu "<< "\n\n";
 	shape(50, 10);
 	cout << "\n\t\t 1 - Add Map\n\t\t 2 - Edit Map\n\t\t 3 - Display Maps\n\t\t 4 - Get Shortest Path\n\t\t 5 - Delete Map\n\t\t 6 - Change Default path\n\t\t";
@@ -58,6 +60,7 @@ void AppStart() {
 			string input;
 			cin >> input;
 			map<string, vector<Edge>> mp;
+			
 			displayGraph(input, mp);
 			cout << "\n\n Do You want to display another Map (y/n)? ";
 			cin >> choose;

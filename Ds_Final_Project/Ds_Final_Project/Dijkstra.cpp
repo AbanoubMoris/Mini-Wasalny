@@ -1,5 +1,5 @@
 #include "Dijkstra.h"
-#include"Functions.h"
+//#include"Functions.h"
 
 vector<table> Dijkstra::MakeTable(map<string, vector<Edge>> mp) {
 	vector<table> tbl;
@@ -102,7 +102,7 @@ vector<table> Dijkstra::dijkstra(map<string, vector<Edge>> mp, string source, st
 	return Tbl;
 }
 stack<string> Dijkstra::GetPath(map<string, vector<Edge>> mp, string source, string dist, double &distance) {
-
+	Loading("Path", 90);
 	vector<table> Tbl = dijkstra(mp, source, dist);
 	stack<string> Path;
 	string curDist = dist;

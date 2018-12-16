@@ -1,9 +1,23 @@
 #include"Functions.h"
 #include <sstream>
 map<string, vector<Edge>> mp;
+void Loading(string s,int delay) {
+	system("color 2f");
+	system("color 0e");
+	char a = 177, b = 219;
+	cout << "\n\n\n\n\n\n\n\n\n\t\t\t\t\t\tLoading.... " + s;
+	cout << "\n\n";
+	cout << "\t\t\t\t\t\t";
+	for (int i = 0; i <= 30; i++) {
+		cout << b;
+		Sleep( delay );
+	}
+	cout << endl;
+	system("CLS");
+}
+
 void displayMaps() {
-	cout << "\n\t\t\t\t  " << "Welcome" << "\n\n\t\t";
-	cout << "\t  Here's All map are recently Saved\n\t\t" << endl;
+	Loading("Maps",100);
 	cout << "\n\t\t\t\t  " << "Welcome" << "\n\n\t\t";
 	cout << "\t  Here's All map are recently Saved\n\t\t" << endl;
 	ifstream display("Mapsname.txt", ios::in);
@@ -21,6 +35,7 @@ void addGraph() {
 }
 //*****************************************************************************************************
 vector<string> displayGraph(string input,map<string , vector<Edge>> &map) {
+	Loading(input, 90);
 	Graph recall;
 	string x;
 	recall.mp.clear();
