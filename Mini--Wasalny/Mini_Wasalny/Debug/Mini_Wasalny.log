@@ -1,0 +1,23 @@
+﻿  Main.cpp
+  Shape.cpp
+  Graph.cpp
+  Functions.cpp
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(7): warning C4309: 'initializing': truncation of constant value
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(235): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(247): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(256): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(268): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(283): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\functions.cpp(296): warning C4018: '<': signed/unsigned mismatch
+  Edge.cpp
+  Dijkstra.cpp
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(57): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(71): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\documents\github\ds-project\mini_wasalny\mini_wasalny\dijkstra.cpp(111): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Mini_Wasalny.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Mini_Wasalny\Debug\Mini_Wasalny.exe
+  Mini_Wasalny.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Mini_Wasalny\Debug\Mini_Wasalny.pdb (Full PDB)
