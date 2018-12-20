@@ -1,7 +1,6 @@
 #include "Graph.h"
 #include<fstream>
 #include<sstream>
-
 Graph::Graph()
 {
 }
@@ -10,50 +9,53 @@ void Graph::addMap() {
 	you shoud put path to location you want to save files and put double back slash '\\' instead single slash '\'
 	*/
 	cout << "Entre Map's Name" << endl;
-	getline(cin, mapName);
+	getline(cin, name);
 	fstream mapsNames("Mapsname.txt", ios::in | ios::out|ios::app);
 	string line;
 	while (mapsNames >> line)
+	{
 		res.insert(line);
+	}
+	do
+	{
 
-	do{
-		if (res.find(mapName) != res.end())
+		if (res.find(name) != res.end())
 			cout << "This name is alredy Exist." << endl;
 		else {
 			ofstream addName("Mapsname.txt", ios::out | ios::app);
-			addName << mapName << endl;
+			addName << name << endl;
 			break;
 		}
 		cout << "Entre Map's Name" << endl;
-		getline(cin, mapName);
+		getline(cin, name);
 
 	} while (true);
 	mapsNames.close();
 	cout << "How many Edges In the Graph :";
-	cin >> NumOfEdge;
-	ofstream mapInfo(mapName + ".txt", ios::out | ios::app);
-	cout << "Enter: city1 Connected with City2 and Distance(Km) between them: \n";
-	for (int i = 0; i < NumOfEdge; i++) {
+	cin >> NumOfCity;
+	ofstream mapInfo(name + ".txt", ios::out | ios::app);
+	cout << "Enter-> city1 Connected with City2 and Distance(Km) between them,: \n";
+	for (int i = 0; i < NumOfCity; i++) {
+		//cout << "        ";
 		cout << "\nEnter Vertex Num " << i + 1 << " : ";
-		cin.ignore(1000,'\n');  //to get a composite cities like (New cairo)
+		cin.ignore(1000,'\n');  //to get a composite cities like ( New cairo )
 		getline(cin, City1);
 		cout << "connected with ->";
 		getline(cin, City2);
-		cout << "Distance between them is :";
+		cout << "their weght (distance between them) is :";
 		cin >> Weight;
 		stringstream ss;
 		ss << Weight;
 		string dis = ss.str();
-		string concatenate = '#' + City1 + "#" + City2 + "#" +dis; // don't forget to conver again to interger
-		mapInfo << concatenate << endl;
+		string concatinate = '#' + City1 + "#" + City2 + "#" +dis;// don't forget to conver again to interger
+		mapInfo << concatinate << endl;
 		mp[City1].push_back(Edge(City2, Weight));
 		cout << "**********************\n";
 	}
 	mapInfo.close();
 }
-
-void Graph::putINmap(string City1, string City2, int Weight) { 
-	mp[City1].push_back(Edge(City2, Weight));
+void Graph::putINmap(string A, string B, int c) { 
+	mp[A].push_back(Edge(B, c));
 }
 map<string, vector<Edge>> Graph::GetMap() {
 	return mp;
@@ -61,15 +63,16 @@ map<string, vector<Edge>> Graph::GetMap() {
 
 void  Graph::outMap(map<string, vector<Edge>> &map) { // this method is useless but leave it
 	cout << "\n\n";
-	for (itCity =mp.begin();itCity != mp.end(); itCity++) {
-		cout << "Vertexes Connected to (" << itCity->first << "):: Are -> { \n";
-		for ( itEdge = itCity->second.begin(); itEdge != itCity->second.end(); itEdge++)
-			cout << "				< City : " << itEdge->GetVertex() << "   Weight " << itEdge->GetWeight() << " Km > ,\n";
-		
+	for (it =mp.begin();it != mp.end(); it++) {
+		cout << "Vertexes Connected to (" << it->first << "):: Are -> { \n";
+		for ( i = it->second.begin(); i != it->second.end(); i++) {
+			cout << "				< City : " << i->GetVertex() << "   Weight " << i->GetWeight() << " Km > ,\n";
+		}
 		cout << "				}" << endl << endl;
-		cout << "            _______________________________________________________\n";
+		cout << "            *******************************************************\n";
 	}
-	map = mp;	
+	map = mp;
+	
 }
 
 Graph::~Graph()

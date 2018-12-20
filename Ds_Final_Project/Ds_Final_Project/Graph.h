@@ -7,22 +7,23 @@
 #include<vector>
 #include"Edge.h"
 using namespace std;
-class Graph{
-
-	int  NumOfEdge;
+class Graph
+{
+	int  NumOfCity;
 	string City1, City2;
 	double Weight;
-	string mapName;
 	unordered_set<string> res;
-	map<string, vector<Edge>>::iterator itCity;
-	vector<Edge>::iterator itEdge;
+	map<string, vector<Edge>>::iterator it;
+	vector<Edge>::iterator i;
+	string name;
 
 public: map<string, vector<Edge>> mp;
 public:
 	Graph();
 	void addMap();
-	void putINmap(string City1, string City2, int Weight);
+	void putINmap(string A, string B, int c);
 	map<string, vector<Edge>> GetMap();
     void outMap(map<string, vector<Edge>> &map);
 	~Graph();
 };
+

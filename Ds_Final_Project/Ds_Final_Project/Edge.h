@@ -2,7 +2,8 @@
 #include<iostream>
 #include<string>
 using namespace std;
-class Edge{
+class Edge
+{
 	string Vertex; //city name
 	double weight; //distance between 2 city
 public:
