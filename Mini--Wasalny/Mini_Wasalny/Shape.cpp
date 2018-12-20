@@ -40,7 +40,8 @@ void AppStart() {
 	shape(50, 10);
 	cout << "\n\t\t 1 - Add Map\n\t\t 2 - Edit Map\n\t\t 3 - Display Maps\n\t\t 4 - Get Shortest Path\n\t\t 5 - Delete Map\n\t\t 6 - Change Default path\n\t\t";
 	char choice;
-	choice = _getch();
+	//choice = _getch();
+	cin >> choice;
 	if (choice == '1') {
 		system("CLS");
 		addGraph();
@@ -57,18 +58,19 @@ void AppStart() {
 			displayMaps();
 			cout << "\n\t\t  please write Name of the Map that you want to display\n\t\t" << endl;
 			cout << "\t\t";
-			string input;
-			cin >> input;
+			string mapName;
+			cin >> mapName;
 			map<string, vector<Edge>> mp;
 
-			displayGraph(input, mp);
+			displayGraph(mapName, mp);
 			cout << "\n\n Do You want to display another Map (y/n)? ";
 			cin >> choose;
 			system("CLS");
-		} while (choose == 'y');
+		} while (choose == 'y' || choose == 'Y' /*&& !(choose == 'n' || choose == 'N')*/);
 		AppStart();
 	}
-	else if (choice == '4') { //shortest path
+	//shortest path
+	else if (choice == '4') {
 		char choose;
 		do {
 			system("CLS");
@@ -90,7 +92,7 @@ void AppStart() {
 			Dijkstra Dijkstra;
 			// recall;
 
-			stack<string> s = Dijkstra.GetPath(mp, src, dist, distance); //************************
+			stack<string> s = Dijkstra.GetPath(mp, src, dist, distance); 
 			if (!s.empty()) {
 				while (!s.empty()) {
 					cout << s.top() << " --> ";
@@ -110,4 +112,6 @@ void AppStart() {
 		system("CLS");
 		deleteMap();
 	}
+	else if (choice == '6')
+		exit(0);
 }

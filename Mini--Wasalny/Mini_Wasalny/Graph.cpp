@@ -3,8 +3,8 @@
 #include"Shape.h"
 #include<Windows.h>
 #include<sstream>
-Graph::Graph()
-{
+Graph::Graph(){
+
 }
 void Graph::addMap() {
 	/*Note:
