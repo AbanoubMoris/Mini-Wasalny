@@ -335,26 +335,35 @@ void AddEdge(string NodeName1, string NodeName2, vector<string> x, string fileNa
 }
 void ploymerization()
 {
+	
+			
 	displayMaps();
-	string file1, file2, newfile, Edge, line;
+	int linkedGraphs;
+	cout << "Enter Number of Graphs: ";
+	cin >> linkedGraphs;
+	string *file = new string[linkedGraphs];
+	string newfile, Edge, line;
 	unordered_set<string> mapNames, Edges;
 	unordered_set<string>::iterator it;
-	cout << "Enter Graph 1: ";
-	cin >> file1;
-	//getline(cin, file1);
-	cout << "Enter Graph 2: ";
-	cin >> file2;
-	//getline(cin, file2);
+	for (int i = 0; i < linkedGraphs; i++) {
+		cout << "Enter Graph " << i + 1 << ": ";
+		cin >> file[i];
+	}
 	cout << "Enter New Graph Name: ";
 	cin >> newfile;
-	//getline(cin, newfile);
 	fstream mapsNames("Mapsname.txt", ios::in | ios::out | ios::app);
 	while (mapsNames >> line)
 		mapNames.insert(line);
 	do {
-		if (mapNames.find(file1) != mapNames.end() && mapNames.find(file2) != mapNames.end() && mapNames.find(newfile) == mapNames.end()) {
-			mapNames.erase(file1);
-			mapNames.erase(file2);
+		bool wrongName = true;
+		for (int i = 0; i < mapNames.size(); i++)
+			if (mapNames.find(file[i]) == mapNames.end()) {
+				wrongName = false;
+				break;
+			}
+		if (mapNames.find(newfile) == mapNames.end() && !wrongName) {
+			for (int i = 0; i < linkedGraphs; i++)
+				mapNames.erase(file[i]);
 			it = mapNames.begin();
 			ofstream ofs;
 			ofs.open("Mapsname.txt", std::ofstream::out | std::ofstream::trunc);
@@ -362,37 +371,33 @@ void ploymerization()
 			for (auto it = mapNames.begin(); it != mapNames.end(); it++)
 				ofs << *it << endl;
 			ofs << newfile << endl;
-			fstream stFile(file1 + ".txt", ios::in | ios::out | ios::app);
-			fstream ndFile(file2 + ".txt", ios::in | ios::out | ios::app);
-			while (stFile >> Edge)
-				Edges.insert(Edge);
-			while (ndFile >> Edge)
-				Edges.insert(Edge);
+			for (int i = 0; i < linkedGraphs; i++) {
+				fstream iFile(file[i] + ".txt", ios::in | ios::out | ios::app);
+				while (iFile >> Edge)
+					Edges.insert(Edge);
+				iFile.close();
+			}
 			ofstream mapInfo(newfile + ".txt", ios::out | ios::app);
 			for (auto it = Edges.begin(); it != Edges.end(); it++)
 				mapInfo << *it << endl;
-			file1 = file1 + ".txt";
-			file2 = file2 + ".txt";
-			char delfile[1024];
-			strcpy_s(delfile, file1.c_str());
-			remove(delfile);
-			strcpy_s(delfile, file2.c_str());
-			remove(delfile);
+			for (int i = 0; i < linkedGraphs; i++) {
+				file[i] = file[i] + ".txt";
+				char delfile[1024];
+				strcpy_s(delfile, file[i].c_str());
+				remove(delfile);
+			}
+			ofs.close();
 			mapInfo.close();
-			stFile.close();
-			ndFile.close();
 			break;
 		}
 		else
 			cout << "there isn't Maps that have such Name, please check Maps' name and entre again" << endl;
-		cout << "Entre Map Name" << endl;
-		cout << "Enter Graph 1: ";
-		getline(cin, file1);
-		cout << "Enter Graph 2: ";
-		getline(cin, file2);
+		for (int i = 0; i < linkedGraphs; i++) {
+			cout << "Enter Graph " << i << ": ";
+			cin >> file[i];
+		}
 		cout << "Enter New Graph Name: ";
 		cin >> newfile;
-
 	} while (true);
 	mapsNames.close();
 	AppStart();
