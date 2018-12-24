@@ -378,6 +378,9 @@ void ploymerization()
 			remove(delfile);
 			strcpy_s(delfile, file2.c_str());
 			remove(delfile);
+			mapInfo.close();
+			stFile.close();
+			ndFile.close();
 			break;
 		}
 		else
@@ -387,6 +390,9 @@ void ploymerization()
 		getline(cin, file1);
 		cout << "Enter Graph 2: ";
 		getline(cin, file2);
+		cout << "Enter New Graph Name: ";
+		cin >> newfile;
+
 	} while (true);
 	mapsNames.close();
 	AppStart();
