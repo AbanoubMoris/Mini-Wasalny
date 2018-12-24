@@ -38,7 +38,7 @@ void AppStart() {
 	Loading("Mini_Wasalny :)", 50);
 	//cout << "\n\t\t\t\t  " << " Main Menu "<< "\n\n";
 	shape(50, 10);
-	cout << "\n\t\t 1 - Add Map\n\t\t 2 - Edit Map\n\t\t 3 - Display Maps\n\t\t 4 - Get Shortest Path\n\t\t 5 - Delete Map\n\t\t 6 - Change Default path\n\t\t";
+	cout << "\n\t\t 1 - Add Map\n\t\t 2 - Edit Map\n\t\t 3 - Display Maps\n\t\t 4 - Get Shortest Path\n\t\t 5 - Delete Map\n\t\t 6 - Compine two graphs\n\t\t";
 	char choice;
 	choice = _getch();
 	if (choice == '1') {
@@ -102,6 +102,7 @@ void AppStart() {
 			//********************************************************
 			cout << "\n\n Do You want to display another Map (y/n)? ";
 			cin >> choose;
+
 		} while (choose == 'y');
 		AppStart();
 
@@ -109,5 +110,10 @@ void AppStart() {
 	else if (choice == '5') {
 		system("CLS");
 		deleteMap();
+	}
+	else if (choice == '6')
+	{
+		system("CLS");
+		ploymerization();
 	}
 }
