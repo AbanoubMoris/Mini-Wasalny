@@ -1,6 +1,0 @@
-﻿  Input.cpp
-  Functions.cpp
-c:\users\lap shop\documents\github\ds-project\ds_final_project\ds_final_project\functions.cpp(7): warning C4309: 'initializing': truncation of constant value
-  Generating Code...
-  Ds_Final_Project.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Ds_Final_Project\x64\Debug\Ds_Final_Project.exe
-  Ds_Final_Project.vcxproj -> C:\Users\lap shop\Documents\GitHub\DS-Project\Ds_Final_Project\x64\Debug\Ds_Final_Project.pdb (Partial PDB)
