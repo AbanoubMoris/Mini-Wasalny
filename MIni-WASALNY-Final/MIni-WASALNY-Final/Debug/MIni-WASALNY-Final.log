@@ -1,0 +1,29 @@
+﻿  Shape.cpp
+  Main.cpp
+  Graph.cpp
+  Functions.cpp
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(12): warning C4309: 'initializing': truncation of constant value
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(243): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(255): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(265): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(277): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(293): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(306): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(369): warning C4018: '>': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(432): warning C4101: 'z': unreferenced local variable
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(629): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(630): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(631): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(632): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\functions.cpp(669): warning C4244: 'argument': conversion from '__int64' to 'const int', possible loss of data
+  Dijkstra.cpp
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(20): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(57): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(70): warning C4018: '<': signed/unsigned mismatch
+c:\users\lap shop\desktop\mini-wasalny-final\mini-wasalny-final\dijkstra.cpp(110): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  MIni-WASALNY-Final.vcxproj -> C:\Users\lap shop\Desktop\MIni-WASALNY-Final\Debug\MIni-WASALNY-Final.exe
+  MIni-WASALNY-Final.vcxproj -> C:\Users\lap shop\Desktop\MIni-WASALNY-Final\Debug\MIni-WASALNY-Final.pdb (Full PDB)
